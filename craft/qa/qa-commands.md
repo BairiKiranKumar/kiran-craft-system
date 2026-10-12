@@ -14,7 +14,17 @@ python3 craft/qa/validate_tokens.py design/tokens.json
 ```
 Fails on plain-hex colours, wrong units, broken `{aliases}` and type mismatches.
 
-## 3. Screenshots and automatic checks
+## 3. UI Anti-patterns and Design Quality (Impeccable)
+```bash
+npx impeccable detect .
+```
+Or against a running dev server:
+```bash
+npx impeccable detect http://localhost:3000
+```
+Scans HTML, CSS, JSX/TSX and rendered pages for UI anti-patterns, generic AI design cliches, typography flaws, and layout issues. Run `npx impeccable detect --json .` for automated pipelines.
+
+## 4. Screenshots and automatic checks
 Start the dev server first (for example `npm run dev`), then:
 ```bash
 node craft/qa/screens.mjs http://localhost:3000 --out design/qa-output
@@ -35,13 +45,13 @@ Produces 10 screenshots (320, 375, 768, 1024, 1440px, each with normal and reduc
 
 These are heuristics. The pause check only looks for a button named "pause" or "stop"; confirm it actually controls every loop and works with the keyboard.
 
-## 4. Lab performance
+## 5. Lab performance
 ```bash
 npx lighthouse http://localhost:3000 --form-factor=mobile --screenEmulation.mobile --throttling-method=simulate --output=json --output=html --output-path=./design/qa-output/lighthouse --chrome-flags="--headless=new"
 ```
 In a Linux container or CI, add `--no-sandbox` inside `--chrome-flags`. Report LCP, CLS and **Total Blocking Time** (the lab stand-in for INP). Do not write "INP passed" from Lighthouse. Run against a production build (`npm run build && npm run start`), not the dev server, before quoting numbers.
 
-## 5. Human-only (agent must list these as open, never mark them done)
+## 6. Human-only (agent must list these as open, never mark them done)
 - Keyboard walkthrough: Tab, Shift+Tab, Enter, Escape, focus returns after closing overlays.
 - Real Android (mid-range, throttled network) and iPhone Safari.
 - Field Core Web Vitals from PageSpeed Insights or RUM once the site has traffic.

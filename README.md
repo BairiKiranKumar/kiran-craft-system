@@ -39,21 +39,27 @@ your-site/
 ```
 
 ## Install into a website project
+**Linux / macOS / WSL / Git Bash:**
 ```bash
 bash /path/to/kiran-craft-system/install.sh /path/to/your-site
 ```
-Copies `AGENTS.md` and `craft/`, creates or extends `CLAUDE.md`, and seeds `design/` from the templates. Re-running it updates `craft/` and never touches `design/`. On Windows, run it from Git Bash or WSL.
+**Windows PowerShell:**
+```powershell
+.\install.ps1 -Destination C:\path\to\your-site
+```
+Copies `AGENTS.md` and `craft/`, creates or extends `CLAUDE.md`, seeds `design/` from the templates, and automatically installs **Impeccable** design skills (`.claude`, `.cursor`, `.agents`, etc.) plus the CLI anti-pattern detector. Re-running it updates `craft/` and never touches `design/`.
 
 ## How each tool picks it up
 | Tool | How it reads the system |
 |---|---|
-| **Claude Code** | Reads `CLAUDE.md` at session start, which imports `AGENTS.md`. Recent versions also read `AGENTS.md` directly. [Docs](https://code.claude.com/docs/en/memory) |
+| **Claude Code** | Reads `CLAUDE.md` at session start, which imports `AGENTS.md`. Recent versions also read `AGENTS.md` directly. Impeccable commands (`/typeset`, `/polish`, `/critique`, etc.) available natively in chat. [Docs](https://code.claude.com/docs/en/memory) |
 | **OpenAI Codex** | Reads `AGENTS.md` from the project root down to the working folder (and `~/.codex/AGENTS.md`), up to 32 KiB combined by default. [Docs](https://learn.chatgpt.com/docs/agent-configuration/agents-md) |
-| **Cursor** | `[Unverified]` reads a root `AGENTS.md`; if not, add a project rule that says "Follow AGENTS.md". |
+| **Cursor** | Reads root `AGENTS.md` and project/global skills in `.cursor/skills`. |
+| **Antigravity / Gemini** | Reads workspace `.agents/` and global customizations. Impeccable skills loaded into `.agents/skills/impeccable`. |
 | **claude.ai Project** | Paste `AGENTS.md` into the Project instructions; upload `craft/library/*`, `craft/agent/*` and `craft/templates/*` as Project files. |
 | **ChatGPT Project** | Same: paste `AGENTS.md` into Project instructions; upload the same files. |
 
-Agents read the deep `craft/` files only when a task needs them. Keep `AGENTS.md` short; it is loaded into every session.
+Agents read the deep `craft/` files only when a task needs them. Keep `AGENTS.md` short; it is loaded into every session. Impeccable skills provide interactive design refining (`/shape`, `/typeset`, `/layout`, `/bolder`, `/harden`, `/polish`, `/critique`, `/audit`) and anti-pattern detection (`npx impeccable detect .`).
 
 ## How to run one website through it
 1. Install (above). Fill `design/creative-brief.md`; list locked features under "Existing features that must not change".

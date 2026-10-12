@@ -46,6 +46,26 @@ seed motion-spec.md motion-spec.md
 seed research-kit.md research-kit.md
 [[ -f "$DEST/design/DECISIONS.md" ]] || printf '# Decisions log\n\n| Date | Decision | Alternatives rejected | Evidence | Known debt |\n|---|---|---|---|---|\n' > "$DEST/design/DECISIONS.md"
 
+# 4. Impeccable design skills & anti-pattern engine
+if command -v npx >/dev/null 2>&1; then
+  echo "Installing Impeccable design skills into $DEST..."
+  (cd "$DEST" && npx -y impeccable install -y --project) || echo "Warning: npx impeccable install failed or timed out; run 'npx impeccable install' manually if needed."
+else
+  echo "Note: npx not found. Run 'npx impeccable install' once Node.js/npm is available."
+fi
+
+# 5. Git ignore defaults (seed once if missing)
+if [[ ! -f "$DEST/.gitignore" ]]; then
+  cat << 'EOF' > "$DEST/.gitignore"
+node_modules/
+*.exe
+**/skills/impeccable/scripts/bin/
+design/qa-output/
+*.log
+EOF
+fi
+
 echo "Craft System installed in $DEST"
 echo "Next: fill design/creative-brief.md (locks go under 'Existing features that must not change'),"
 echo "replace the example brand.md and tokens.json, then: python3 craft/qa/validate_tokens.py design/tokens.json"
+

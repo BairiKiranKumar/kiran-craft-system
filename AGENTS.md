@@ -34,10 +34,11 @@
 19. Targets: field p75 LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1. **Agent:** run Lighthouse (lab) and report TBT as the INP proxy. Never claim field results from lab data.
 20. No scroll hijack, mandatory sound, full-screen preload gate or cursor-only interactions on commercial pages.
 21. Design loading, empty, error, success, reduced-motion and slow-network states.
-22. Before final output, run `craft/qa/screens.mjs`, self-audit against `craft/agent/critic-scorecard.md`, and list trade-offs plainly.
+22. Before final output, run `craft/qa/screens.mjs` and `npx impeccable detect`, self-audit against `craft/agent/critic-scorecard.md`, and list trade-offs plainly.
 23. Critique happens in a **fresh** context that receives only the brief, screenshots, QA report and URL, not the developer's reasoning.
 24. Capture real before/after screenshots, source credits and measured results; never invent client outcomes for the portfolio.
 25. End every milestone with a short `design/DECISIONS.md`: decisions, alternatives rejected, evidence, known debt, next user-facing experiment.
+26. **Impeccable design skills:** Use Impeccable design skills to elevate and harden UI: `/shape`, `/typeset`, `/layout`, `/colorize`, `/bolder`, `/delight` during concept/direction; `/harden`, `/adapt`, `/polish` during build; and `/critique`, `/audit` alongside `npx impeccable detect` for QA.
 
 ## Output order for new concepts (G2–G6)
 `INSIGHT → THREE DIRECTIONS → SELECTED CONCEPT + WHY → SECTION MAP → ASSET PLAN → TOKENS → MOTION SPEC → RESPONSIVE PROTOTYPE → QA EVIDENCE`.

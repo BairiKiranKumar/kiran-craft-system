@@ -1,5 +1,16 @@
 # Changelog
 
+## v1.2 — 13 October 2026 (Impeccable integration & Windows PowerShell support)
+**Impeccable Design System & AI Skills**
+- Integrated Impeccable (`npx impeccable`) design skills and commands (`/shape`, `/typeset`, `/layout`, `/colorize`, `/bolder`, `/quieter`, `/delight`, `/harden`, `/adapt`, `/polish`, `/critique`, `/audit`).
+- Added `npx impeccable detect` to QA workflow (`craft/qa/qa-commands.md`, `craft/library/standards-and-budget.md`, `craft/agent/roles-and-prompts.md`) to catch UI anti-patterns, generic AI design cliches, typography flaws, and layout issues.
+- Updated `AGENTS.md` (directive 22 & 26) instructing coding agents to leverage Impeccable skills throughout concept, build, and QA.
+
+**Installers & Automation**
+- Updated `install.sh` to run `npx -y impeccable install -y --project` and seed default `.gitignore` automatically when initializing any new website project.
+- Added native `install.ps1` for Windows PowerShell developers to run installs directly without needing Git Bash or WSL.
+- Added `.gitignore` to prevent committing platform-specific binaries (`impeccable.exe`) while preserving skills and templates.
+
 ## v1.1 — 11 October 2026 (Claude review of GPT's v1.0)
 **Structure**
 - One `AGENTS.md` at the root (v1.0 had two identical copies). Added `CLAUDE.md` that imports it.

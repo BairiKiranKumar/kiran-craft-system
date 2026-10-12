@@ -40,6 +40,7 @@ The source memo contains similar asset budgets; they are **starting experiments*
 |---|---|---|---|
 | Responsive screenshots 320–1440px, normal + reduced motion | Yes | `node craft/qa/screens.mjs <url>` | Final visual sign-off |
 | Horizontal overflow, missing alt, unnamed buttons, h1 count, autoplay-without-pause heuristic | Yes | same script, `qa-report.json` | Fix judgement on edge cases |
+| UI anti-patterns, generic AI cliches & styling flaws | Yes | `npx impeccable detect .` | Review findings & intentional overrides |
 | Lab performance (LCP, TBT, CLS) | Yes | `npx lighthouse <url> --form-factor=mobile` (see `craft/qa/qa-commands.md`) | — |
 | Token file validity | Yes | `python3 craft/qa/validate_tokens.py tokens.json` | — |
 | Keyboard walkthrough | Partly (scripted Tab order) | Playwright | Yes, by hand |

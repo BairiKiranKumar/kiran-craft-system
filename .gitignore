@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Impeccable platform binaries (downloaded dynamically per OS)
+*.exe
+**/skills/impeccable/scripts/bin/
+
+# Temporary / QA artifacts
+design/qa-output/
+*.log
+.cache/
+*.part.*
